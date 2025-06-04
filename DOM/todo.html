@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <style>
+        .todo{ 
+            background-color: yellow;
+        }
+    </style> -->
+</head>
+<body>
+    <h1>ToDo Lists</h1>  <!--"." fto access class and "#" for ids -->
+    <div class = "todo">
+        <div id = "todo-1" style="display: flex;">
+            <h2>1. Eat breakfast</h2>
+            <button onclick="DeleteToDo(this)">Delete</button>
+        </div> 
+        <div id = "todo-2" style="display: flex;">
+            <h2>2. Bath</h2>
+            <button onclick="DeleteToDo(this)">Delete</button>
+        </div> 
+    </div>
+    
+    <div>
+        <input type="text" placeholder="Add your todo here">
+        <button onclick="AddToDo()">Add ToDo</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

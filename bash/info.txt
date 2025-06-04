@@ -1,0 +1,16 @@
+cd - navigate through folders
+ls - shows whats in that folder
+pwd - present working directory
+mkdir - make directory
+touch - creates file
+cat - displays content of that file
+
+vi (vim editor - lets you edit the code directly from terminal) - i for insert mode, escape+:+w+q+! to save and exit, other wise no need to write w.
+
+mv for move (mv a.txt next-folder - move a.txt to next-folder)
+cp for copy (cp a.txt test-folder - copies  a.txt to test-folder)
+for copying directories you need to add flag -r (recursively) (cp -r test1 test2 - copies test1 to test2)
+
+.exit - to exit from a shell
+
+npm
