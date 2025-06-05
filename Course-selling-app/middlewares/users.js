@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const { JWT_SECRET } = require("../config");
+const { JWT_USER_PASSWORD } = require("../config");
 
 module.exports = function userMiddleware(req, res, next) {
   const authHeader = req.headers.authorization;
@@ -8,7 +8,7 @@ module.exports = function userMiddleware(req, res, next) {
   }
   // const token = authHeader.split(" ")[1];
   try {
-    const decoded = jwt.verify(authHeader, JWT_SECRET);
+    const decoded = jwt.verify(authHeader, JWT_USER_PASSWORD);
     req.email = decoded.email; // Make sure you set email in the JWT payload!
     next();
   } catch (e) {

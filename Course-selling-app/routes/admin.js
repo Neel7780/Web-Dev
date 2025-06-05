@@ -89,6 +89,7 @@ router.post("/signin", async (req,res)=>{
     }
 })
 
+// Creating courses
 router.post("/courses", adminMiddleware, async (req,res)=>{
      // Extract course details from request body
     const title = req.body.title;
@@ -96,11 +97,18 @@ router.post("/courses", adminMiddleware, async (req,res)=>{
     const imagelink = req.body.imagelink;
     const price = req.body.price;
 
+    // creator id
+    const admin = await Admin.findOne({
+        email : req.email
+    })
+    const creatorId = admin._id
+
     const newCourse = await Course.create({
         title : title,
         description : description,
         imagelink : imagelink,
-        price : price
+        price : price,
+        creatorId : creatorId
     })
 
     // Respond with the newly created course ID and a success message
@@ -113,8 +121,14 @@ router.post("/courses", adminMiddleware, async (req,res)=>{
 // Route for updating a course (admin-protected)
 router.put("/course", adminMiddleware, async (req, res)=>{
     const { courseId, title, description, imagelink, price } = req.body;
+
+    const admin = await Admin.findOne({
+        email : req.email
+    })
+
     const course = await Course.findById({
-        _id : courseId
+        _id : courseId,
+        creatorId : admin._id
     })
 
     // If the course is not found, respond with an error message

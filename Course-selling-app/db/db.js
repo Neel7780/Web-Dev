@@ -1,10 +1,9 @@
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema
-
-mongoose.connect("mongodb+srv://neel212006:IzcVwTx8EkU2NfIA@neel212006.zpfjulr.mongodb.net/course-selling-app")
+const ObjectId = mongoose.ObjectId
 
 const UserSchema = new Schema({
-    email : String,
+    email : { type: String, unique: true },
     password : String,
     purchasedCourses : [
         {
@@ -15,7 +14,7 @@ const UserSchema = new Schema({
 })
 
 const AdminSchema = new Schema({
-    email : String,
+    email : { type: String, unique: true },
     password : String
 })
 
@@ -23,7 +22,8 @@ const CourseSchema = new Schema({
     title : String,
     description : String,
     imagelink : String,
-    price : Number
+    price : Number,
+    creatorId : ObjectId // Reference to the creator's ObjectId (Admin)
 })
 
 const Course = mongoose.model("course", CourseSchema)
