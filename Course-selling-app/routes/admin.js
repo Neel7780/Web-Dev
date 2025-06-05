@@ -71,6 +71,7 @@ router.post("/signin", async (req,res)=>{
             })
         } else{
             const passwordMatch = await bcrypt.compare(password, user.password)
+            console.log("JWT_ADMIN_PASSWORD", process.env.JWT_ADMIN_PASSWORD)
             if(passwordMatch){
                 const token = jwt.sign({
                     id : user._id.toString(),
@@ -87,7 +88,7 @@ router.post("/signin", async (req,res)=>{
             }
         } 
     }
-})
+}); // Properly close /signin route
 
 // Creating courses
 router.post("/courses", adminMiddleware, async (req,res)=>{
