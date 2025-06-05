@@ -88,7 +88,7 @@ router.post("/signin", async (req,res)=>{
             }
         } 
     }
-}); // Properly close /signin route
+}); 
 
 // Creating courses
 router.post("/courses", adminMiddleware, async (req,res)=>{
