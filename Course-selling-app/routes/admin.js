@@ -5,7 +5,7 @@ const { Admin, Course } = require("../db/db");
 const {z} = require("zod")
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
-const {JWT_SECRET} = require("../config")
+const { JWT_ADMIN_PASSWORD } = require("../config")
 
 router.post("/signup", async (req,res)=>{
     const requireBody = z.object({
@@ -75,7 +75,7 @@ router.post("/signin", async (req,res)=>{
                 const token = jwt.sign({
                     id : user._id.toString(),
                     email : user.email
-                }, JWT_SECRET)
+                }, JWT_ADMIN_PASSWORD)
                 res.json({
                     message : "You are signed in!",
                     token : token

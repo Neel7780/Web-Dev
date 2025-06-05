@@ -1,9 +1,10 @@
-const express = require("express")
-const app = express()
-const mongoose = require("mongoose")
-require("dotenv").config()
-const PORT = process.env.PORT || 3000;
+require("dotenv").config();
+console.log("Loaded env MONGO_URL:", process.env.MONGO_URL);
 
+const express = require("express");
+const app = express();
+const mongoose = require("mongoose");
+const PORT = process.env.PORT || 3000;
 const MONGO_URL = process.env.MONGO_URL;
 
 // Import the admin and user routes
@@ -18,6 +19,7 @@ app.use("/user", userRouter); // Route all user-related requests to the user rou
 
 async function main() {
     try {
+        console.log("MOngo url", MONGO_URL);
         await mongoose.connect(MONGO_URL);
         console.log("Connected to the database");
         app.listen(PORT, () => {
