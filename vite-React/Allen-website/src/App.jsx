@@ -6,23 +6,31 @@ import Programs from "./components/Programs";
 import Scholarships from "./components/Scholarships";
 import TestSeries from "./components/Test-Series";
 import StudyMaterials from "./components/Study-Materials";
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
+
+function MainLayout() {
+    return (
+        <>
+            <Navbar />
+            <Outlet />
+            <Footer />
+        </>
+    );
+}
 
 function App() {
     return (
         <BrowserRouter>
-            <Navbar />
-            
             <Routes>
-                <Route path="/" element={<Layout />} />
-                <Route path="/exams" element={<Exams />} />
-                <Route path="/programs" element={<Programs />} />
-                <Route path="/scholarships" element={<Scholarships />} />
-                <Route path="/test-series" element={<TestSeries />} />
-                <Route path="/study-materials" element={<StudyMaterials />} />
+                <Route path="/" element={<MainLayout />}>
+                    <Route index element={<Layout />} />
+                    <Route path="exams" element={<Exams />} />
+                    <Route path="programs" element={<Programs />} />
+                    <Route path="scholarships" element={<Scholarships />} />
+                    <Route path="test-series" element={<TestSeries />} />
+                    <Route path="study-materials" element={<StudyMaterials />} />
+                </Route>
             </Routes>
-
-            <Footer />
         </BrowserRouter>
     );
 }
