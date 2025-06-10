@@ -1,7 +1,7 @@
 function TestSeries(){
     return (
-        <div>
-            Test-Series
+        <div className="TestSeries-page">
+            <h2>Test-Series</h2>
         </div>
     )
 }

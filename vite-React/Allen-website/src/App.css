@@ -71,7 +71,7 @@ body {
 }
 
 /* Exams, Programs, Scholarships Pages */
-.exams-page, .programs-page, .scholarships-page {
+.exams-page, .programs-page, .scholarships-page, .StudyMaterials-page, .TestSeries-page {
   background: #fff;
   margin: 2rem auto;
   max-width: 800px;
@@ -80,7 +80,7 @@ body {
   box-shadow: 0 2px 12px rgba(0,0,0,0.04);
 }
 .exams-page h2, .programs-page h2, .scholarships-page h2, .StudyM
-aterials-page h2 {
+aterials-page h2, .TestSeries-page h2 {
   color: #003366;
   margin-bottom: 1rem;
 }
