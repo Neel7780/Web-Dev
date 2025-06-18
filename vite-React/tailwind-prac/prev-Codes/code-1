@@ -1,0 +1,19 @@
+import './App.css'
+
+function App() {
+  return (
+    <div className='grid grid-cols-12'>
+      <div className='sm:col-span-5 col-span-12 bg-green-500'>
+        hi there
+      </div>
+      <div className='sm:col-span-5 col-span-12 bg-red-500'>
+        hi there
+      </div>
+      <div className='sm:col-span-2 col-span-12 bg-blue-500'>
+        hi there
+      </div>
+    </div>
+  )
+}
+
+export default App
