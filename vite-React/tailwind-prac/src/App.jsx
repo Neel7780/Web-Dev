@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import { OtpBox } from './components/OtpBox'
 import './App.css'
 
 function App() {
@@ -8,16 +10,10 @@ function App() {
         <div className="text-white text-4xl">Webinar.gg</div>
       </div>
       <div>
-        <h1 className='font-mono text-white text-center my-30 text-3xl font-semibold font-sans'>Verify Your Age</h1>
-      </div>
-      <div className='flex justify-center mt-10 text-gray-300 text-lg'>
-        Please confirm your birth year. This data will not be stored.
+        <h1 className='font-sans text-white text-center my-30 text-3xl font-semibold'>Check your Email for Code</h1>
       </div>
       <div className='text-center mt-4'>
-        <input id='true' type="text" placeholder="Your Birth Year" className='bg-gray-500 rounded-lg pl-3 w-100 h-12'/>
-      </div>
-      <div className='text-center mt-9'>
-        <button className='bg-gray-600 hover:bg-gray-700 w-100 h-12 rounded-lg pointer'>Continue</button>
+        <OtpBox/>
       </div>
     </div>
   )
