@@ -1,0 +1,43 @@
+import { useRef, useState } from "react"
+
+export function OtpBox(){
+    const ref1 = useRef()
+    const ref2 = useRef()
+    const ref3 = useRef()
+    const ref4 = useRef()
+    const ref5 = useRef()
+    const ref6 = useRef()
+
+    return (
+        <div className="flex justify-center ">
+            <Box reference={ref1} onDone={()=>{ref2.current.focus()}} />
+            <Box reference={ref2} onDone={()=>{ref3.current.focus()}} />
+            <Box reference={ref3} onDone={()=>{ref4.current.focus()}} />
+            <Box reference={ref4} onDone={()=>{ref5.current.focus()}} />
+            <Box reference={ref5} onDone={()=>{ref6.current.focus()}} />
+            <Box reference={ref6}/>
+            
+            
+        </div>
+    )
+}
+
+function Box({ reference, onDone, goBack }){
+    const [inputBoxVal, setInputBoxVal] = useState('')
+    return (
+        <div className="m-2">
+            <input value={inputBoxVal} type="text" ref={reference} onChange={
+                (e) => {
+                    const val = e.target.value
+                    console.log(val)
+                    if(val>=0 && val<=9){
+                        setInputBoxVal(val)
+                        onDone()
+                    } else {
+                        reference.current.value = ''
+                    }
+                }
+            } className="w-12 h-13 text-white text-center bg-violet-500 rounded-xl "/>
+        </div>
+    )
+}

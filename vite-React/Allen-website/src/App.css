@@ -1,0 +1,151 @@
+General Styles
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f7f9fa;
+  margin: 0;
+  color: #222;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #003366;
+  padding: 0.5rem 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.navbar-logo img {
+  vertical-align: middle;
+}
+.navbar-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.navbar-links a, .navbar-links .active {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.navbar-links a:hover {
+  color: #ffcc00;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(90deg, #e3f0ff 60%, #fff 100%);
+  padding: 2.5rem 1rem 2rem 1rem;
+  text-align: center;
+}
+.hero h1 {
+  color: #003366;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+.hero p {
+  color: #444;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+.hero-img {
+  max-width: 90vw;
+  width: 600px;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+/* About Section */
+.about {
+  background: #fff;
+  margin: 2rem auto;
+  max-width: 900px;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  text-align: center;
+}
+.about h2 {
+  color: #003366;
+  margin-bottom: 1rem;
+}
+
+/* Exams, Programs, Scholarships Pages */
+.exams-page, .programs-page, .scholarships-page, .StudyMaterials-page, .TestSeries-page {
+  background: #fff;
+  margin: 2rem auto;
+  max-width: 800px;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.exams-page h2, .programs-page h2, .scholarships-page h2, .StudyM
+aterials-page h2, .TestSeries-page h2 {
+  color: #003366;
+  margin-bottom: 1rem;
+}
+.exams-page ul, .programs-page ul, .scholarships-page ul {
+  list-style: disc inside;
+  color: #333;
+  font-size: 1.1rem;
+  margin: 1rem 0 0 0;
+  padding: 0;
+}
+
+/* Footer Styles */
+.footer {
+  background: #003366;
+  color: #fff;
+  padding: 2rem 1rem 1rem 1rem;
+  margin-top: 3rem;
+}
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1000px;
+  margin: 0 auto 1rem auto;
+  gap: 2rem;
+}
+.footer-content h3 {
+  margin: 0 0 0.5rem 0;
+}
+.footer-socials a {
+  color: #ffcc00;
+  margin: 0 0.5rem;
+  text-decoration: none;
+}
+.footer-socials a:hover {
+  text-decoration: underline;
+}
+.footer-bottom {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #cce0ff;
+  margin-top: 1rem;
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+  .navbar-links {
+    flex-direction: column;
+    gap: 0.7rem;
+    width: 100%;
+  }
+  .footer-content {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .hero-img {
+    width: 98vw;
+  }
+  .about, .exams-page, .programs-page, .scholarships-page {
+    padding: 1rem;
+  }
+}
