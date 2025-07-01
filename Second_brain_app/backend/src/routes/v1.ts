@@ -4,6 +4,8 @@ import {z} from "zod"
 import bcrypt from "bcrypt"
 import { Request, Response} from "express";
 
+import {randomHash} from "./../utils"
+
 import jwt from "jsonwebtoken"
 const JWT_PASSWORD = "neel2222"
 
@@ -164,6 +166,57 @@ router.delete("/content", middleware, async (req: Request, res: Response) => {
 
     res.json({
         message: "Deleted"
+    })
+})
+
+router.post("/share", middleware, async (req: Request, res: Response) => {
+    const canShare = req.body.share;
+    // @ts-ignore
+    const user = await User.findOne({ username: req.username })
+    if(!user){
+        res.status(404).json({message : "Error finding user"})
+        return;
+    }
+    if(canShare){
+        const hash = randomHash(10)
+        await Link.create({
+            hash : hash,
+            userId : user._id 
+        })
+        res.json({
+            hash : hash,
+            message : "Link Created!"
+        })
+    } else {
+        await Link.deleteOne({
+            userId : user._id
+        })
+        res.json({message : "Link wont be provided!"})
+    }
+})
+
+router.get("/share/:sharedLink", async (req: Request, res: Response) => {
+    const hash = req.params.sharedLink;
+    const resposne = await Link.findOne({
+        hash : hash
+    })
+    if(!resposne){
+        res.status(411).json({message : "Invalid Link"})
+        return;
+    } 
+    const user = await User.findOne({
+        _id : resposne.userId
+    })
+    if(!user){
+        res.status(404).json({ message : "Unable to find user." })
+        return;
+    }
+    const content = await Content.findOne({
+        userId : user._id
+    })
+
+    res.json({
+        content : content
     })
 })
 

@@ -1,1 +1,1 @@
-{"root":["./src/index.ts","./src/db/db.ts","./src/middlewares/middleware.ts","./src/routes/v1.ts"],"version":"5.8.3"}
+{"root":["./src/index.ts","./src/utils.ts","./src/db/db.ts","./src/middlewares/middleware.ts","./src/routes/v1.ts"],"version":"5.8.3"}
