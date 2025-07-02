@@ -4,7 +4,8 @@ interface buttonprops {
     text : String,
     size : "lg" | "sm" | "md",
     icon?: ReactElement, 
-    variant : "primary" | "secondary"
+    variant : "primary" | "secondary",
+    onClick? : () => void,
 }
 
 const sizeStyles = {
@@ -15,22 +16,20 @@ const sizeStyles = {
 
 const buttonvariants = {
     "primary": " bg-purple-700 text-white",
-    "secondary": "bg-purple-400 text-purple-600",
+    "secondary": "bg-purple-400 text-purple-700",
 
 }
 
 export function Button(props : buttonprops){
     const Comp = props.icon;
     return (
-        <>
-            <button className={`${buttonvariants[props.variant]} ${sizeStyles[props.size]}`}>
-                <div className="flex items-center">
-                    {Comp}
-                    <div className="pl-2 pr-2">
-                        {props.text}
-                    </div>
+        <button onClick={props.onClick} className={`${buttonvariants[props.variant]} ${sizeStyles[props.size]} cursor-pointer`}>
+            <div className="flex items-center">
+                {Comp}
+                <div className="pl-2 pr-2">
+                    {props.text}
                 </div>
-            </button>
-        </>
+            </div>
+        </button>
     )
 }

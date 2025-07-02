@@ -6,8 +6,9 @@ import { Request, Response} from "express";
 
 import {randomHash} from "./../utils"
 
+
 import jwt from "jsonwebtoken"
-const JWT_PASSWORD = "neel2222"
+import { JWT_PASSWORD } from "../configs"
 
 import {middleware} from "./../middlewares/middleware"
 
@@ -105,9 +106,10 @@ router.post("/signin", async (req: Request, res: Response) => {
 })
 
 router.post("/content", middleware, async (req: Request, res: Response) => {
+    console.log('POST /content body:', req.body);
     const requiredbody = z.object({
         link: z.string(),
-        type: z.enum(['image', 'video', 'article', 'audio'], { message: "Invalid content type" }),
+        type: z.enum(["youtube", "twitter"], { message: "Invalid content type" }),
         title: z.string().min(1, { message: "Title cannot be empty" })
     });
     const content = requiredbody.safeParse(req.body)

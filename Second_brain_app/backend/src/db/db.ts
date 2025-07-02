@@ -12,7 +12,7 @@ const tagSchema = new Schema({
     title : {type : String, required : true, unique :  true}
 })
 
-const contentTypes = ['image', 'video', 'article', 'audio']; // Extend as needed
+const contentTypes = ["youtube", "twitter"]; // Extend as needed
 
 const contentSchema = new Schema({
   link: { type: String, required: true },
