@@ -29,7 +29,7 @@ function Dashboard() {
                   share: true
               }, {
                   headers: {
-                      "Authorization": localStorage.getItem("token")
+                      "Authorization": `Bearer ${localStorage.getItem("token")}`
                   }
               });
               const shareUrl = `http://localhost:5173/share/${response.data.hash}`;

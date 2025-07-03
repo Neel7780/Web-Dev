@@ -171,7 +171,7 @@ router.delete("/content", middleware, async (req: Request, res: Response) => {
     })
 })
 
-router.post("/share", middleware, async (req: Request, res: Response) => {
+router.post("/brain/share", middleware, async (req: Request, res: Response) => {
     const canShare = req.body.share;
     // @ts-ignore
     const user = await User.findOne({ username: req.username })
